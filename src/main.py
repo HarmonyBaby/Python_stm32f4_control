@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-import string
 import myserial
 import control
 
@@ -7,7 +6,7 @@ while True:
 	cmd=raw_input('Please input the command:')
 	cmds=cmd.lower().split('-')
 	cmd_head=cmds.pop(0).strip()
-	cmd_params=cmds.strip()
+	cmd_params=cmds
 	# print len(cmd_head)
 	# print len(cmd_params)
 

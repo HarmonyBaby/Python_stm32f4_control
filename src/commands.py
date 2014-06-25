@@ -36,18 +36,18 @@ CMD_BODY={
 
 DATA_MAX=65535
 
-def cmd_render_2(head,body,data1,data2):
+def cmd_execute_2(head,body,data1,data2):
 	s='%s%s%04x%04x' %(CMD_HEAD[head],CMD_BODY[head][body],data1,data2)
-	print s
-# 	return s.decode('hex')
+# 	print s
+	return s.decode('hex')
 
-def cmd_render(head,body,data):
+def cmd_execute(head,body,data):
 	if data>DATA_MAX*2:
 		print 'Input %d is larger than %d' %(data,DATA_MAX*2)
 	elif data>DATA_MAX:
-		cmd_render_2(head,body,DATA_MAX,data-DATA_MAX)
+		cmd_execute_2(head,body,DATA_MAX,data-DATA_MAX)
 	else:
-		cmd_render_2(head,body,data,0)
+		cmd_execute_2(head,body,data,0)
 	# s='%s%s%08x' %(CMD_HEAD[head],CMD_BODY[head][body],data)
 	# print s.decode('hex')
 
