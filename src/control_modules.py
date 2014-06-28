@@ -1,8 +1,6 @@
-import commands
 import string
-
-motor_help='dd'
-pid_help='ff'
+import commands
+import module_help
 
 def cmd_preprocess(cmd_param):
         c=cmd_param.split()
@@ -11,11 +9,11 @@ def cmd_preprocess(cmd_param):
         elif len(c)==1:
             return c[0],0
         else:
-            return 'error',0        
+            return '',0
 
 def motor_control(cmds):
     if(len(cmds)==0):
-        print motor_help;
+        print module_help.motor_help;
     else:
         for cmd in cmds:
             k,v=cmd_preprocess(cmd)
@@ -38,7 +36,7 @@ def motor_control(cmds):
 
 def pid_control(cmds):
     if(len(cmds)==0):
-        print pid_help;
+        print module_help.pid_help;
     else:
         for cmd in cmds:
             k,v=cmd_preprocess(cmd)
@@ -56,10 +54,14 @@ def pid_control(cmds):
                 print 'bad command %s' %(k)
 
 def dds_control(cmds):
-    return
+    if(len(cmds)==0):
+        print module_help.dds_help
+    
+
 def scan_control(cmds):
-    return
-def help():
+    if(len(cmds)==0):
+        print module_help.scan_help
+def commands_help(cmds):
     pass
 
 control_funcs={'scan':scan_control,'dds':dds_control,'pid':pid_control,'motor':motor_control,'help':help}

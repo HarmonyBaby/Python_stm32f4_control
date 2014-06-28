@@ -1,10 +1,13 @@
 #!/usr/bin/env python
+import myserial
 
 #COMMAND HEAD
 CMD_HEAD={
-		'CMD_COMMUNICATE':	'0000',
-		'CMD_MOTOR':					'0001',
-		'CMD_PID':						'0002'
+		'CMD_COMMUNICATE':	'0001',
+		'CMD_MOTOR':					'0002',
+		'CMD_PID':						'0003',
+		'CMD_DDS':						'0004',
+		'CMD_SCAN':					'0010'
 		}
 
 #
@@ -29,17 +32,34 @@ CMD_PID={
 		}
 
 #
+CMD_DDS={
+		'SET_FREQ':						'0001',
+		'SET_START_FREQ':		'0002',
+		'SET_END_FREQ':			'0003',
+		'SET_POINTS':					'0004',
+		'SWEEP':							'0005',
+# 		'START':								'0006'
+		}
+
+#
+CMD_SCAN={
+		'START':								'0001'
+		}
+#
 CMD_BODY={
 		'CMD_MOTOR':					CMD_MOTOR,
-		'CMD_PID':						CMD_PID
+		'CMD_PID':						CMD_PID,
+		'CMD_DDS':						CMD_DDS,
+		'CMD_SCAN':					CMD_SCAN
 		}
 
 DATA_MAX=65535
 
+
 def cmd_execute_2(head,body,data1,data2):
 	s='%s%s%04x%04x' %(CMD_HEAD[head],CMD_BODY[head][body],data1,data2)
- 	print s
-	return s.decode('hex')
+# 	myserial.write( s.decode('hex'))
+	myserial.write(s)
 
 def cmd_execute(head,body,data):
 	if data>DATA_MAX*2:

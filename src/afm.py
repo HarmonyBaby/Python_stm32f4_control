@@ -11,9 +11,9 @@ def interactive_run():
 		argv=raw_input('Please input the command:')
 		argv=argv.lower().strip()
 		if argv.startswith('exit') or argv.startswith('quit'):
-			exit()
+			break
 		afm_control.run(argv)
-			
+
 if	__name__ =='__main__':
 	if len(sys.argv)!=1:
 		argv=sys.argv
