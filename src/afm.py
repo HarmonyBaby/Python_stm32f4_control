@@ -3,7 +3,7 @@ import sys
 import afm_control
 
 def argv_process(argv):
-	afm_control.control(argv)
+	afm_control.run(argv)
 
 if	__name__ =='__main__':
 	if len(sys.argv)!=1:

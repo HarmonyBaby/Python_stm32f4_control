@@ -38,7 +38,7 @@ DATA_MAX=65535
 
 def cmd_execute_2(head,body,data1,data2):
 	s='%s%s%04x%04x' %(CMD_HEAD[head],CMD_BODY[head][body],data1,data2)
-# 	print s
+ 	print s
 	return s.decode('hex')
 
 def cmd_execute(head,body,data):
