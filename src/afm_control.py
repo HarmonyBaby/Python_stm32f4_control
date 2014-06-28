@@ -4,6 +4,24 @@ import string
 motor_help=''
 pid_help=''
 
+		# print len(cmd_head)
+		# print len(cmd_params)
+def control(a):
+# 		cmds=argv.lower().split('-')
+# 		cmd_head=cmds.pop(0).strip()
+# 		cmd_params=cmds
+# 		if cmd_head=='exit' or cmd_head=='quit':
+# 			break	
+# 		elif cmd_head=='motor':
+# 			control.motor_control(cmd_params)	
+# 		elif cmd_head=='pid':
+# 			control.PID_control(cmd_params)
+# 		elif cmd_head=='dds':
+# 			control.DDS_control(cmd_params)	
+# 		else:
+# 			print 'bad command'
+# 			continue
+	pass
 def cmd_preprocess(cmd_param):
 		c=cmd_param.split()
 		if len(c)==2:
