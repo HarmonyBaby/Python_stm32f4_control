@@ -15,12 +15,17 @@ def interactive_run():
 		afm_control.run(argv)
 
 if	__name__ =='__main__':
-	if len(sys.argv)!=1:
-		argv=sys.argv
-		argv.pop(0)
-		run(argv)
-	else:
-		interactive_run()
+	import afm_data_correction as afmio
+	import afm_image_display as disp
+	
+	data=afmio.read_data('1.rawdata')
+	disp.plot_3d(data)
+# 	if len(sys.argv)!=1:
+# 		argv=sys.argv
+# 		argv.pop(0)
+# 		run(argv)
+# 	else:
+# 		interactive_run()
 
 
 

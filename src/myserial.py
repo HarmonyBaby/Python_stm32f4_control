@@ -12,11 +12,13 @@ myserial_settings['baudrate']=115200
 
 def write(m_serial,s):
     m_serial.write(s)
+
 def save_settings():
     fullpath=os.path.join(sys.path[0],filename)
     f = open(fullpath,"w")
     pickle.dump(myserial_settings, f)
     f.close()   
+
 def load_settings():
     fullpath=os.path.join(sys.path[0],filename)
     if os.path.isfile(fullpath):
@@ -29,13 +31,16 @@ def load_settings():
 
 def open_port():
     return serial.Serial(myserial_settings['port'],myserial_settings['baudrate'])
+
 def close_port(m_serial):
     m_serial.close()
+
 def set_port(port,baudrate):
     myserial_settings['port']=port
     myserial_settings['baudrate']=baudrate
     save_settings()
     port_info()
+
 def port_info():
     print myserial_settings
 
